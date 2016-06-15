@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -23,14 +24,27 @@ public class MainActivity extends Activity {
         mWebView = (WebView) findViewById(R.id.activity_main_webview);
 
         // Force links and redirects to open in the WebView instead of in a browser
-        mWebView.setWebViewClient(new WebViewClient());
+          mWebView.setWebViewClient(new WebViewClient());
 
         // Enable Javascript
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
+           mWebView.setWebViewClient(new WebViewClient() {
+
+          @Override
+          public void onPageFinished(WebView view, String url) {
+                //hide loading image
+              //findViewById(R.id.loading_image).setVisibility(View.GONE);
+                //show webview
+              findViewById(R.id.activity_main_webview).setVisibility(View.VISIBLE);
+          }
+
+
+        });
+
         // Use remote resource
-         mWebView.loadUrl("http://www.youmarket.com.ar/web/index.php");
+               mWebView.loadUrl("http://whirlpoolmarket.com.ar/");
 
         // Stop local links and redirects from opening in browser instead of WebView
         // mWebView.setWebViewClient(new MyAppWebViewClient());
