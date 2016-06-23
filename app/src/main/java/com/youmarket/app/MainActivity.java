@@ -1,6 +1,7 @@
 package com.youmarket.app;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,11 +35,26 @@ public class MainActivity extends Activity {
 
           @Override
           public void onPageFinished(WebView view, String url) {
-                //hide loading image
-              //findViewById(R.id.loading_image).setVisibility(View.GONE);
-                //show webview
-              findViewById(R.id.activity_main_webview).setVisibility(View.VISIBLE);
+              if (findViewById(R.id.activity_main_webview).getVisibility()==View.GONE) {
+                  //hide loading image
+                  //findViewById(R.id.loading_image).setVisibility(View.GONE);
+                  //show webview
+                  findViewById(R.id.activity_main_webview).setVisibility(View.VISIBLE);
+                  findViewById(R.id.activity_main_webview).bringToFront();
+              }else{
+                  //show webview
+                  findViewById(R.id.activity_main_webview).bringToFront();
+              }
           }
+
+
+               @Override
+               public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                   findViewById(R.id.loading_image).setAlpha(0.5f);
+                   findViewById(R.id.loading_image).bringToFront();
+
+
+               }
 
 
         });
