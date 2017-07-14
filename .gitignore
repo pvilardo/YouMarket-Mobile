@@ -1,0 +1,7 @@
+.gradle/
+*.iml
+*.apk
+.idea/
+
+
+
