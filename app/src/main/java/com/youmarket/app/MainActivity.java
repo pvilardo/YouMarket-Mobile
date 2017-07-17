@@ -60,7 +60,7 @@ public class MainActivity extends Activity {
         });
 
         // Use remote resource
-               mWebView.loadUrl("http://beneficia.youmarket.com.ar");
+               mWebView.loadUrl("http://programa-jsm.com.ar");
 
         // Stop local links and redirects from opening in browser instead of WebView
         // mWebView.setWebViewClient(new MyAppWebViewClient());
